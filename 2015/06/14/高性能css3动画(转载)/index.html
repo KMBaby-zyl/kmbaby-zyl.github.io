@@ -1,0 +1,665 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next muse use-motion">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/vendors/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/vendors/font-awesome/css/font-awesome.min.css?v=4.4.0" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="性能 css3 animation," />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.0.1" />
+
+
+
+
+
+
+<meta name="description" content="注：本文出自腾讯AlloyTeam的元彦，文章也可以在github上浏览。请尊重版权，转载请注明来源，多谢～～
+
+高性能移动Web相较PC的场景需要考虑的因素也相对更多更复杂，我们总结为以下几点： 流量、功耗与流畅度。 在PC时代我们更多的是考虑体验上的流畅度，而在Mobile端本身丰富的场景下，需要额外关注对用户基站网络流量使用的情况，设备耗电量的情况。
+关于流畅度，主要体现在前端动画中，在现有">
+<meta property="og:type" content="article">
+<meta property="og:title" content="高性能css3 animation">
+<meta property="og:url" content="http://yoursite.com/2015/06/14/高性能css3动画(转载)/index.html">
+<meta property="og:site_name" content="kmbaby的博客">
+<meta property="og:description" content="注：本文出自腾讯AlloyTeam的元彦，文章也可以在github上浏览。请尊重版权，转载请注明来源，多谢～～
+
+高性能移动Web相较PC的场景需要考虑的因素也相对更多更复杂，我们总结为以下几点： 流量、功耗与流畅度。 在PC时代我们更多的是考虑体验上的流畅度，而在Mobile端本身丰富的场景下，需要额外关注对用户基站网络流量使用的情况，设备耗电量的情况。
+关于流畅度，主要体现在前端动画中，在现有">
+<meta property="og:updated_time" content="2016-10-08T07:12:23.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="高性能css3 animation">
+<meta name="twitter:description" content="注：本文出自腾讯AlloyTeam的元彦，文章也可以在github上浏览。请尊重版权，转载请注明来源，多谢～～
+
+高性能移动Web相较PC的场景需要考虑的因素也相对更多更复杂，我们总结为以下几点： 流量、功耗与流畅度。 在PC时代我们更多的是考虑体验上的流畅度，而在Mobile端本身丰富的场景下，需要额外关注对用户基站网络流量使用的情况，设备耗电量的情况。
+关于流畅度，主要体现在前端动画中，在现有">
+
+
+
+<script type="text/javascript" id="hexo.configuration">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    scheme: 'Muse',
+    sidebar: {"position":"left","display":"post"},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: 0,
+      author: 'Author'
+    }
+  };
+</script>
+
+  <title> 高性能css3 animation | kmbaby的博客 </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-CN">
+
+  
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-meta ">
+  
+
+  <div class="custom-logo-site-title">
+    <a href="/"  class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <span class="site-title">kmbaby的博客</span>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+  <p class="site-subtitle"></p>
+</div>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            Home
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            Archives
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            Tags
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                高性能css3 animation
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">Posted on</span>
+            <time itemprop="dateCreated" datetime="2015-06-14T21:14:23+08:00" content="2015-06-14">
+              2015-06-14
+            </time>
+          </span>
+
+          
+
+          
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>注：本文出自腾讯AlloyTeam的元彦，文章也可以在github上浏览。请尊重版权，转载请注明来源，多谢～～</p>
+<hr>
+<p>高性能移动Web相较PC的场景需要考虑的因素也相对更多更复杂，我们总结为以下几点： 流量、功耗与流畅度。 在PC时代我们更多的是考虑体验上的流畅度，而在Mobile端本身丰富的场景下，需要额外关注对用户基站网络流量使用的情况，设备耗电量的情况。</p>
+<p>关于流畅度，主要体现在前端动画中，在现有的前端动画体系中，通常有两种模式：JS动画与CSS3动画。 JS动画是通过JS动态改写样式实现动画能力的一种方案，在PC端兼容低端浏览器中不失为一种推荐方案。 而在移动端，我们选择性能更优浏览器原生实现方案：CSS3动画。</p>
+<p>然而，CSS3动画在移动多终端设备场景下，相比PC会面对更多的性能问题，主要体现在动画的卡顿与闪烁。</p>
+<p>目前对提升移动端CSS3动画体验的主要方法有几点：</p>
+<h3 id="尽可能多的利用硬件能力，如使用3D变形来开启GPU加速"><a href="#尽可能多的利用硬件能力，如使用3D变形来开启GPU加速" class="headerlink" title="尽可能多的利用硬件能力，如使用3D变形来开启GPU加速"></a>尽可能多的利用硬件能力，如使用3D变形来开启GPU加速</h3><pre><code>-webkit-transform: translate3d(0, 0, 0);
+-moz-transform: translate3d(0, 0, 0);
+-ms-transform: translate3d(0, 0, 0);
+transform: translate3d(0, 0, 0);
+</code></pre><p>###如动画过程有闪烁（通常发生在动画开始的时候），可以尝试下面的Hack：<br>    -webkit-backface-visibility: hidden;<br>    -moz-backface-visibility: hidden;<br>    -ms-backface-visibility: hidden;<br>    backface-visibility: hidden;</p>
+<pre><code>-webkit-perspective: 1000;
+-moz-perspective: 1000;
+-ms-perspective: 1000;
+perspective: 1000;
+</code></pre><p>###如下面一个元素通过translate3d右移500px的动画流畅度会明显优于使用left属性：</p>
+<pre><code>#ball-1 {
+  transition: -webkit-transform .5s ease;
+  -webkit-transform: translate3d(0, 0, 0);
+}
+#ball-1.slidein {
+  -webkit-transform: translate3d(500px, 0, 0);
+}
+
+#ball-2 {
+  transition: left .5s ease;
+  left：0;
+}
+#ball-2.slidein {
+  left：500px;
+}
+</code></pre><p>注：3D变形会消耗更多的内存与功耗，应确实有性能问题时才去使用它，兼在权衡</p>
+<p>###尽可能少的使用box-shadows与gradients<br>box-shadows与gradients往往都是页面的性能杀手，尤其是在一个元素同时都使用了它们，所以拥抱扁平化设计吧。</p>
+<p>###尽可能的让动画元素不在文档流中，以减少重排<br>    position: fixed;<br>    position: absolute;</p>
+<p>###优化 DOM layout 性能</p>
+<p>我们从实例开始描述这个主题：</p>
+<pre><code>var newWidth = aDiv.offsetWidth + 10;
+aDiv.style.width = newWidth + &apos;px&apos;;
+var newHeight = aDiv.offsetHeight + 10;
+aDiv.style.height = newHeight + &apos;px&apos;;
+
+var newWidth = aDiv.offsetWidth + 10;
+var newHeight = aDiv.offsetHeight + 10;
+aDiv.style.width = newWidth + &apos;px&apos;;
+aDiv.style.height = newHeight + &apos;px&apos;;
+</code></pre><p>从注释中可找到规律，连续的读取offsetWidth/Height属性与连续的设置width/height属性，相比分别读取设置单个属性可少触发一次layout。</p>
+<p>从结论看似乎与执行队列有关，没错，这是浏览器的优化策略。所有可触发layout的操作都会被暂时放入 layout-queue 中，等到必须更新的时候，再计算整个队列中所有操作影响的结果，如此就可只进行一次的layout，从而提升性能。</p>
+<p>关键一，可触发layout的操作，哪些操作下会layout的更新（也称为reflow或者relayout）？</p>
+<p>我们从浏览器的源码实现入手，以开源<strong>Webkit/Blink</strong>为例， 对layout的更新，Webkit 主要通过 <strong>Document::updateLayout</strong> 与<strong>Document::updateLayoutIgnorePendingStylesheets</strong> 两个方法：</p>
+<pre><code>void Document::updateLayout()
+{
+    ASSERT(isMainThread());
+
+    FrameView* frameView = view();
+    if (frameView &amp;amp;&amp;amp; frameView-&amp;gt;isInLayout()) {
+        ASSERT_NOT_REACHED();
+        return;
+    }
+
+    if (Element* oe = ownerElement())
+        oe-&amp;gt;document()-&amp;gt;updateLayout();
+
+    updateStyleIfNeeded();
+
+    StackStats::LayoutCheckPoint layoutCheckPoint;
+
+    if (frameView &amp;amp;&amp;amp; renderer() &amp;amp;&amp;amp; (frameView-&amp;gt;layoutPending() || renderer()-&amp;gt;needsLayout()))
+        frameView-&amp;gt;layout();
+
+    if (m_focusedNode &amp;amp;&amp;amp; !m_didPostCheckFocusedNodeTask) {
+        postTask(CheckFocusedNodeTask::create());
+        m_didPostCheckFocusedNodeTask = true;
+    }
+}
+
+void Document::updateLayoutIgnorePendingStylesheets()
+{
+    bool oldIgnore = m_ignorePendingStylesheets;
+
+    if (!haveStylesheetsLoaded()) {
+        m_ignorePendingStylesheets = true;
+
+        HTMLElement* bodyElement = body();
+        if (bodyElement &amp;amp;&amp;amp; !bodyElement-&amp;gt;renderer() &amp;amp;&amp;amp; m_pendingSheetLayout == NoLayoutWithPendingSheets) {
+            m_pendingSheetLayout = DidLayoutWithPendingSheets;
+            styleResolverChanged(RecalcStyleImmediately);
+        } else if (m_hasNodesWithPlaceholderStyle)
+            recalcStyle(Force);
+    }
+
+    updateLayout();
+
+    m_ignorePendingStylesheets = oldIgnore;
+}
+</code></pre><p>从 updateLayoutIgnorePendingStylesheets 方法的内部实现可知，其也是对 updateLayout 方法的扩展，并且在现有的 layout 更新模式中，大部分场景都是调用 updateLayoutIgnorePendingStylesheets 来进行layout的更新。</p>
+<p>搜索 Webkit 实现中调用 updateLayoutIgnorePendingStylesheets 方法的代码, 得到以下可导致触发 layout 的操作：</p>
+<ul>
+<li>Element: clientHeight, clientLeft, clientTop, clientWidth, focus(), getBoundingClientRect(), getClientRects(), innerText, offsetHeight, offsetLeft, offsetParent, offsetTop, offsetWidth, outerText, scrollByLines(), scrollByPages(), scrollHeight, scrollIntoView(), scrollIntoViewIfNeeded(), scrollLeft, scrollTop, scrollWidth</li>
+<li>Frame, HTMLImageElement: height, width</li>
+<li>Range: getBoundingClientRect(), getClientRects()</li>
+<li>SVGLocatable: computeCTM(), getBBox()</li>
+<li>SVGTextContent: getCharNumAtPosition(), getComputedTextLength(), getEndPositionOfChar(), getExtentOfChar(), getNumberOfChars(), getRotationOfChar(), getStartPositionOfChar(), getSubStringLength(), selectSubString()</li>
+<li>SVGUse: instanceRoot</li>
+<li>window: getComputedStyle(), scrollBy(), scrollTo(), scrollX, scrollY, webkitConvertPointFromNodeToPage(), webkitConvertPointFromPageToNode()</li>
+</ul>
+<p>进一步深入Layout，那上文中必须更新的必要条件是什么？ 在 Stoyan Stefanov 的 Rendering: repaint, reflow/relayout, restyle 一文中已做比较详细的解答，可移步了解~</p>
+
+      
+    </div>
+
+    <div>
+      
+        
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/性能-css3-animation/" rel="tag">#性能 css3 animation</a>
+          
+        </div>
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2015/06/14/跨域那些事儿/" rel="next" title="跨域的几种解决方案">
+                <i class="fa fa-chevron-left"></i> 跨域的几种解决方案
+              </a>
+            
+          </div>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2015/06/14/sublime-text-2-配置/" rel="prev" title="sublime text 配置">
+                sublime text 配置 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            Overview
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel ">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/images/avatar.gif"
+               alt="kmbaby" />
+          <p class="site-author-name" itemprop="name">kmbaby</p>
+          <p class="site-description motion-element" itemprop="description">学习总结 思考感悟 知识管理</p>
+        </div>
+        <nav class="site-state motion-element">
+          <div class="site-state-item site-state-posts">
+            <a href="/archives">
+              <span class="site-state-item-count">8</span>
+              <span class="site-state-item-name">posts</span>
+            </a>
+          </div>
+
+          
+
+          
+            <div class="site-state-item site-state-tags">
+              <a href="/tags">
+                <span class="site-state-item-count">7</span>
+                <span class="site-state-item-name">tags</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+        </div>
+
+        
+        
+
+        
+        
+
+      </section>
+
+      
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+            
+              
+            
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#尽可能多的利用硬件能力，如使用3D变形来开启GPU加速"><span class="nav-number">1.</span> <span class="nav-text">尽可能多的利用硬件能力，如使用3D变形来开启GPU加速</span></a></li></ol></div>
+            
+          </div>
+        </section>
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2016</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">kmbaby</span>
+</div>
+
+<div class="powered-by">
+  Powered by <a class="theme-link" href="http://hexo.io">Hexo</a>
+</div>
+
+<div class="theme-info">
+  Theme -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Muse
+  </a>
+</div>
+
+        
+
+        
+      </div>
+    </footer>
+
+    <div class="back-to-top">
+      <i class="fa fa-arrow-up"></i>
+    </div>
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+  
+  <script type="text/javascript" src="/vendors/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/vendors/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/vendors/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.0.1"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.0.1"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.0.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.0.1"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.0.1"></script>
+
+
+
+  
+
+
+
+  
+
+
+
+  
+  
+  
+
+  
+
+  
+
+</body>
+</html>
