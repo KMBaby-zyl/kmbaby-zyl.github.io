@@ -68,7 +68,7 @@
 <link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="优化," />
+  <meta name="keywords" content="webpack," />
 
 
 
@@ -84,21 +84,37 @@
 
 
 
-<meta name="description" content="图片优化－ base64 vs 雪碧图页面渲染的过程中太多的request会增加页面的加载时间和渲染时间。为此我们通常会打包css，js文件，把图片打包成雪碧图。有时候我们还可以使用base64把图片资源直接写入css文件，这个做法非常的方面。
-雪碧图雪碧图是把各种小图片资源拼凑在一起，成为一张大图片资源。通过 background-position 来设置图片位置起始点，配合 width，hei">
+<meta name="description" content="webpack 入门官网doc http://webpack.github.io/docs/tutorials/getting-started/
+npm install webpack -g
+添加一个 webpack.conf.js
+//webpack配置文件栗子
+module.exports =  {
+    watch: true,
+    entry: entry_file,
+    deb">
 <meta property="og:type" content="article">
-<meta property="og:title" content="图片优化 base64 vs 雪碧图">
-<meta property="og:url" content="http://yoursite.com/2015/08/28/图片优化_base64_vs_雪碧图/index.html">
+<meta property="og:title" content="webpack入门">
+<meta property="og:url" content="http://yoursite.com/2016/10/08/webpack/index.html">
 <meta property="og:site_name" content="kmbaby的博客">
-<meta property="og:description" content="图片优化－ base64 vs 雪碧图页面渲染的过程中太多的request会增加页面的加载时间和渲染时间。为此我们通常会打包css，js文件，把图片打包成雪碧图。有时候我们还可以使用base64把图片资源直接写入css文件，这个做法非常的方面。
-雪碧图雪碧图是把各种小图片资源拼凑在一起，成为一张大图片资源。通过 background-position 来设置图片位置起始点，配合 width，hei">
-<meta property="og:image" content="http://images.apple.com/global/nav/images/globalnav.png">
-<meta property="og:updated_time" content="2016-10-08T07:12:23.000Z">
+<meta property="og:description" content="webpack 入门官网doc http://webpack.github.io/docs/tutorials/getting-started/
+npm install webpack -g
+添加一个 webpack.conf.js
+//webpack配置文件栗子
+module.exports =  {
+    watch: true,
+    entry: entry_file,
+    deb">
+<meta property="og:updated_time" content="2016-10-08T07:56:34.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="图片优化 base64 vs 雪碧图">
-<meta name="twitter:description" content="图片优化－ base64 vs 雪碧图页面渲染的过程中太多的request会增加页面的加载时间和渲染时间。为此我们通常会打包css，js文件，把图片打包成雪碧图。有时候我们还可以使用base64把图片资源直接写入css文件，这个做法非常的方面。
-雪碧图雪碧图是把各种小图片资源拼凑在一起，成为一张大图片资源。通过 background-position 来设置图片位置起始点，配合 width，hei">
-<meta name="twitter:image" content="http://images.apple.com/global/nav/images/globalnav.png">
+<meta name="twitter:title" content="webpack入门">
+<meta name="twitter:description" content="webpack 入门官网doc http://webpack.github.io/docs/tutorials/getting-started/
+npm install webpack -g
+添加一个 webpack.conf.js
+//webpack配置文件栗子
+module.exports =  {
+    watch: true,
+    entry: entry_file,
+    deb">
 
 
 
@@ -116,7 +132,7 @@
   };
 </script>
 
-  <title> 图片优化 base64 vs 雪碧图 | kmbaby的博客 </title>
+  <title> webpack入门 | kmbaby的博客 </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-CN">
@@ -236,7 +252,7 @@
             
             
               
-                图片优化 base64 vs 雪碧图
+                webpack入门
               
             
           </h1>
@@ -248,8 +264,8 @@
               <i class="fa fa-calendar-o"></i>
             </span>
             <span class="post-meta-item-text">Posted on</span>
-            <time itemprop="dateCreated" datetime="2015-08-28T19:14:23+08:00" content="2015-08-28">
-              2015-08-28
+            <time itemprop="dateCreated" datetime="2016-10-08T15:56:23+08:00" content="2016-10-08">
+              2016-10-08
             </time>
           </span>
 
@@ -276,65 +292,82 @@
       
 
       
-        <h1 id="图片优化－-base64-vs-雪碧图"><a href="#图片优化－-base64-vs-雪碧图" class="headerlink" title="图片优化－ base64 vs 雪碧图"></a>图片优化－ base64 vs 雪碧图</h1><p>页面渲染的过程中太多的request会增加页面的加载时间和渲染时间。为此我们通常会打包css，js文件，把图片打包成雪碧图。有时候我们还可以使用base64把图片资源直接写入css文件，这个做法非常的方面。</p>
-<h3 id="雪碧图"><a href="#雪碧图" class="headerlink" title="雪碧图"></a>雪碧图</h3><p>雪碧图是把各种小图片资源拼凑在一起，成为一张大图片资源。通过 background-position 来设置图片位置起始点，配合 width，height 来获取需要的图片。</p>
-<p>EXAMPLE:</p>
-<p><img src="http://images.apple.com/global/nav/images/globalnav.png" alt="Alt text"></p>
-<ol>
-<li>优点<ul>
-<li>把大量图片请求合并为一个图片请求</li>
-</ul>
-</li>
-<li>缺点<ul>
-<li>难以操作和更新，没有工具的帮忙把各种小图拼在一起不是个容易的工作。</li>
-<li>如果雪碧图中有太多留白，不够紧凑会增加额外的空间消耗。</li>
-<li>如果雪碧图过于紧凑，会增加一个图片元素中显示了部分其他图片的风险。</li>
-</ul>
-</li>
-</ol>
-<h3 id="Base64"><a href="#Base64" class="headerlink" title="Base64"></a>Base64</h3><p>Base64的形式为 Data URI</p>
-<pre><code>data:[&lt;mime type&gt;][;charset=&lt;charset&gt;][;base64],&lt;encoded data&gt;
-</code></pre><p>在css中</p>
-<pre><code>selector {
-background: url(data:image/gif;base64,R0lGODlhEAAQAMQAAORHHOVSKudfOulrSOp3WOyDZu6QdvCchPGolfO0o/XBs/fNwfjZ0frl3/zy7////wAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACH5BAkAABAALAAAAAAQABAAAAVVICSOZGlCQAosJ6mu7fiyZeKqNKToQGDsM8hBADgUXoGAiqhSvp5QAnQKGIgUhwFUYLCVDFCrKUE1lBavAViFIDlTImbKC5Gm2hB0SlBCBMQiB0UjIQA7) no-repeat left center;
-</code></pre><p>}</p>
-<p>在html中</p>
-<pre><code>&lt;img width=&quot;16&quot; height=&quot;16&quot; alt=&quot;star&quot; src=&quot;data:image/gif;base64,R0lGODlhEAAQAMQAAORHHOVSKudfOulrSOp3WOyDZu6QdvCchPGolfO0o/XBs/fNwfjZ0frl3/zy7////wAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACH5BAkAABAALAAAAAAQABAAAAVVICSOZGlCQAosJ6mu7fiyZeKqNKToQGDsM8hBADgUXoGAiqhSvp5QAnQKGIgUhwFUYLCVDFCrKUE1lBavAViFIDlTImbKC5Gm2hB0SlBCBMQiB0UjIQA7&quot; /&gt;
-</code></pre><p>使用Base64可以达到我们要的优化效果，把所有的小图放入css文件中。我们把大量的图片请求都合并在了css文件中。</p>
-<ol>
-<li>优点<ul>
-<li>把大量的图片请求合并在了css文件中</li>
-<li>容易更新</li>
-</ul>
-</li>
-<li>缺点<ul>
-<li>会增加25%的图片资源大小，使用了gzip后 只增加10%。</li>
-<li>不支持IE6和7</li>
-</ul>
-</li>
-</ol>
-<h3 id="选择哪个？"><a href="#选择哪个？" class="headerlink" title="选择哪个？"></a>选择哪个？</h3><p>两者都有人在使用，很多情况下一起配合使用会达到更好的效果。</p>
-<p>但如果你的图片需要支持不同设备的时候，雪碧图十分好用。</p>
-<pre><code>selector {
-    background-image: url(our_bg_image.png); /* will be downloaded on common     displays */
-}
-/* Stylesheet for Retina */
-@media screen and (-webkit-min-device-pixel-ratio: 1.5), screen and (min-device-pixel-ratio: 1.5) {
-    selector {
-        background-image: url(our_bg_image@2x.png); /* will be downloaded on retina displays */
+        <h1 id="webpack-入门"><a href="#webpack-入门" class="headerlink" title="webpack 入门"></a>webpack 入门</h1><p>官网doc <a href="http://webpack.github.io/docs/tutorials/getting-started/" target="_blank" rel="external">http://webpack.github.io/docs/tutorials/getting-started/</a></p>
+<pre><code>npm install webpack -g
+</code></pre><p>添加一个 webpack.conf.js</p>
+<p>//webpack配置文件栗子</p>
+<pre><code>module.exports =  {
+    watch: true,
+    entry: entry_file,
+    debug: true,
+    devtool: &apos;source-map&apos;,
+    output: {
+        path: path.resolve(process.cwd(),&apos;dist/&apos;),
+        filename: &apos;[name].js&apos;,
+        chunkFilename: &apos;[name].min.js&apos;,
+        publicPath: path.resolve(process.cwd(),&apos;buildPath/&apos;)
+    },
+    resolve: {
+        alias: {
+                jquery: &apos;global/lib/jquery.js&apos;,
+                template: &apos;global/lib/template.js&apos;,
+                underscore: &apos;global/lib/underscore.js&apos;,
+          }
+    },
+    plugins: [
+        CopyWebpackPlugin...,
+        webpack.ProvidePlugin...,
+        webpack.optimize.DedupePlugin...,
+        ExtractTextPlugin...,
+        webpack.optimize.CommonsChunkPlugin,
+        WebpackNotifierPlugin...,
+        webpack.DllReferencePlugin...
+    ],
+    module: {
+        loaders: [{
+            test: /\.js[x]?$/,
+            exclude: /(node_modules)|(global\/lib\/)/,
+            loader: &apos;babel-loader&apos;
+        },
+        ...
+        ]
     }
 }
-</code></pre><p>如果我们不需要支持ie &lt; 9 我们也可以使用base64</p>
-<pre><code>&lt;script&gt;
-var retina = window.devicePixelRatio &gt; 1 ? true : false;
-if (retina) {
-    // the user has a retina display
+</code></pre><h2 id="entry"><a href="#entry" class="headerlink" title="entry"></a>entry</h2><pre><code>{
+    page1: &apos;path/to/page1&apos;,
+    page2: &apos;path/to/page2&apos;,
+    common: [&apos;jquery&apos;, &apos;react&apos;, &apos;react-dom&apos;]
 }
-else {
-    // the user has a non-retina display
-}
-&lt;/script&gt;
-</code></pre><p>以上</p>
+</code></pre><p>entry 的格式如上，指定了要导出3js文件。page1、2都对应一个入口文件。 common对应了几个文件。</p>
+<p>最后输出 page1.js page2.js common.js。</p>
+<h2 id="watch-是否watch文件变化"><a href="#watch-是否watch文件变化" class="headerlink" title="watch 是否watch文件变化"></a>watch 是否watch文件变化</h2><h2 id="debug-是否开启debug"><a href="#debug-是否开启debug" class="headerlink" title="debug 是否开启debug"></a>debug 是否开启debug</h2><h3 id="devtool-选择一个-devtool-来增强-debug"><a href="#devtool-选择一个-devtool-来增强-debug" class="headerlink" title="devtool 选择一个 devtool 来增强 debug"></a>devtool 选择一个 devtool 来增强 debug</h3><p>参考 <a href="https://segmentfault.com/a/1190000004280859" target="_blank" rel="external">https://segmentfault.com/a/1190000004280859</a></p>
+<p>最佳使用为 cheap-module-eval-source-map。 支持好，效率高</p>
+<h2 id="output-文件输出的配置"><a href="#output-文件输出的配置" class="headerlink" title="output 文件输出的配置"></a>output 文件输出的配置</h2><blockquote>
+<p>path:</p>
+</blockquote>
+<p>输出文件的目录， 这里为 dist目录</p>
+<blockquote>
+<p>filename:</p>
+</blockquote>
+<p>‘[name].js’ [name]对应enrty的key</p>
+<blockquote>
+<p>chunkFilename:</p>
+</blockquote>
+<p>异步加载的文件 这里的[name]该文件在编译后对应的一个模块数字 生成如 1.min.js</p>
+<blockquote>
+<p>publicPath:</p>
+</blockquote>
+<p>异步的加载文件对应的build目录</p>
+<p>比如 imgae: url(./img/bg.png); 编译后则为 imgage: url(/buildPath/bg.png);</p>
+<h2 id="resolve-配置模块路径alias"><a href="#resolve-配置模块路径alias" class="headerlink" title="resolve  配置模块路径alias"></a>resolve  配置模块路径alias</h2><pre><code>{
+    jquery: &apos;global/lib/jquery.js&apos;,
+    template: &apos;global/lib/template.js&apos;,
+    underscore: &apos;global/lib/underscore.js&apos;,
+</code></pre><p>   }</p>
+<p>不详述。配置更多的alias可以方便代码书写，提高webpack寻找模块的速度，提高编译速度。</p>
+<h2 id="plugins-配置webpack插件"><a href="#plugins-配置webpack插件" class="headerlink" title="plugins: 配置webpack插件"></a>plugins: 配置webpack插件</h2><p>插件系列会新开篇章</p>
+<h2 id="loaders-配置-文件对应的loaders"><a href="#loaders-配置-文件对应的loaders" class="headerlink" title="loaders: 配置 文件对应的loaders"></a>loaders: 配置 文件对应的loaders</h2><p>也在插件篇章</p>
+<h2 id="调优"><a href="#调优" class="headerlink" title="调优"></a>调优</h2><p>会新开优化篇章</p>
 
       
     </div>
@@ -356,7 +389,7 @@ else {
       
         <div class="post-tags">
           
-            <a href="/tags/优化/" rel="tag">#优化</a>
+            <a href="/tags/webpack/" rel="tag">#webpack</a>
           
         </div>
       
@@ -365,17 +398,13 @@ else {
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2015/06/17/PageSpeed性能工具/" rel="next" title="PageSpeed性能工具">
-                <i class="fa fa-chevron-left"></i> PageSpeed性能工具
+              <a href="/2016/04/28/react学习/" rel="next" title="react学习">
+                <i class="fa fa-chevron-left"></i> react学习
               </a>
             
           </div>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2015/10/08/移动端布局/" rel="prev" title="移动端布局">
-                移动端布局 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -482,7 +511,7 @@ else {
               
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#图片优化－-base64-vs-雪碧图"><span class="nav-number">1.</span> <span class="nav-text">图片优化－ base64 vs 雪碧图</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#雪碧图"><span class="nav-number">1.0.1.</span> <span class="nav-text">雪碧图</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Base64"><span class="nav-number">1.0.2.</span> <span class="nav-text">Base64</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#选择哪个？"><span class="nav-number">1.0.3.</span> <span class="nav-text">选择哪个？</span></a></li></ol></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#webpack-入门"><span class="nav-number">1.</span> <span class="nav-text">webpack 入门</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#entry"><span class="nav-number">1.1.</span> <span class="nav-text">entry</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#watch-是否watch文件变化"><span class="nav-number">1.2.</span> <span class="nav-text">watch 是否watch文件变化</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#debug-是否开启debug"><span class="nav-number">1.3.</span> <span class="nav-text">debug 是否开启debug</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#devtool-选择一个-devtool-来增强-debug"><span class="nav-number">1.3.1.</span> <span class="nav-text">devtool 选择一个 devtool 来增强 debug</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#output-文件输出的配置"><span class="nav-number">1.4.</span> <span class="nav-text">output 文件输出的配置</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#resolve-配置模块路径alias"><span class="nav-number">1.5.</span> <span class="nav-text">resolve  配置模块路径alias</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#plugins-配置webpack插件"><span class="nav-number">1.6.</span> <span class="nav-text">plugins: 配置webpack插件</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#loaders-配置-文件对应的loaders"><span class="nav-number">1.7.</span> <span class="nav-text">loaders: 配置 文件对应的loaders</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#调优"><span class="nav-number">1.8.</span> <span class="nav-text">调优</span></a></li></ol></li></ol></div>
             
           </div>
         </section>

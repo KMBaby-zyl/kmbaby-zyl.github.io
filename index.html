@@ -233,6 +233,349 @@
             
               
                 
+                <a class="post-title-link" href="/2016/10/08/webpack/" itemprop="url">
+                  webpack入门
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">Posted on</span>
+            <time itemprop="dateCreated" datetime="2016-10-08T15:56:23+08:00" content="2016-10-08">
+              2016-10-08
+            </time>
+          </span>
+
+          
+
+          
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h1 id="webpack-入门"><a href="#webpack-入门" class="headerlink" title="webpack 入门"></a>webpack 入门</h1><p>官网doc <a href="http://webpack.github.io/docs/tutorials/getting-started/" target="_blank" rel="external">http://webpack.github.io/docs/tutorials/getting-started/</a></p>
+<pre><code>npm install webpack -g
+</code></pre><p>添加一个 webpack.conf.js</p>
+<p>//webpack配置文件栗子</p>
+<pre><code>module.exports =  {
+    watch: true,
+    entry: entry_file,
+    debug: true,
+    devtool: &apos;source-map&apos;,
+    output: {
+        path: path.resolve(process.cwd(),&apos;dist/&apos;),
+        filename: &apos;[name].js&apos;,
+        chunkFilename: &apos;[name].min.js&apos;,
+        publicPath: path.resolve(process.cwd(),&apos;buildPath/&apos;)
+    },
+    resolve: {
+        alias: {
+                jquery: &apos;global/lib/jquery.js&apos;,
+                template: &apos;global/lib/template.js&apos;,
+                underscore: &apos;global/lib/underscore.js&apos;,
+          }
+    },
+    plugins: [
+        CopyWebpackPlugin...,
+        webpack.ProvidePlugin...,
+        webpack.optimize.DedupePlugin...,
+        ExtractTextPlugin...,
+        webpack.optimize.CommonsChunkPlugin,
+        WebpackNotifierPlugin...,
+        webpack.DllReferencePlugin...
+    ],
+    module: {
+        loaders: [{
+            test: /\.js[x]?$/,
+            exclude: /(node_modules)|(global\/lib\/)/,
+            loader: &apos;babel-loader&apos;
+        },
+        ...
+        ]
+    }
+}
+</code></pre><h2 id="entry"><a href="#entry" class="headerlink" title="entry"></a>entry</h2><pre><code>{
+    page1: &apos;path/to/page1&apos;,
+    page2: &apos;path/to/page2&apos;,
+    common: [&apos;jquery&apos;, &apos;react&apos;, &apos;react-dom&apos;]
+}
+</code></pre><p>entry 的格式如上，指定了要导出3js文件。page1、2都对应一个入口文件。 common对应了几个文件。</p>
+<p>最后输出 page1.js page2.js common.js。</p>
+<h2 id="watch-是否watch文件变化"><a href="#watch-是否watch文件变化" class="headerlink" title="watch 是否watch文件变化"></a>watch 是否watch文件变化</h2><h2 id="debug-是否开启debug"><a href="#debug-是否开启debug" class="headerlink" title="debug 是否开启debug"></a>debug 是否开启debug</h2><h3 id="devtool-选择一个-devtool-来增强-debug"><a href="#devtool-选择一个-devtool-来增强-debug" class="headerlink" title="devtool 选择一个 devtool 来增强 debug"></a>devtool 选择一个 devtool 来增强 debug</h3><p>参考 <a href="https://segmentfault.com/a/1190000004280859" target="_blank" rel="external">https://segmentfault.com/a/1190000004280859</a></p>
+<p>最佳使用为 cheap-module-eval-source-map。 支持好，效率高</p>
+<h2 id="output-文件输出的配置"><a href="#output-文件输出的配置" class="headerlink" title="output 文件输出的配置"></a>output 文件输出的配置</h2><blockquote>
+<p>path:</p>
+</blockquote>
+<p>输出文件的目录， 这里为 dist目录</p>
+<blockquote>
+<p>filename:</p>
+</blockquote>
+<p>‘[name].js’ [name]对应enrty的key</p>
+<blockquote>
+<p>chunkFilename:</p>
+</blockquote>
+<p>异步加载的文件 这里的[name]该文件在编译后对应的一个模块数字 生成如 1.min.js</p>
+<blockquote>
+<p>publicPath:</p>
+</blockquote>
+<p>异步的加载文件对应的build目录</p>
+<p>比如 imgae: url(./img/bg.png); 编译后则为 imgage: url(/buildPath/bg.png);</p>
+<h2 id="resolve-配置模块路径alias"><a href="#resolve-配置模块路径alias" class="headerlink" title="resolve  配置模块路径alias"></a>resolve  配置模块路径alias</h2><pre><code>{
+    jquery: &apos;global/lib/jquery.js&apos;,
+    template: &apos;global/lib/template.js&apos;,
+    underscore: &apos;global/lib/underscore.js&apos;,
+</code></pre><p>   }</p>
+<p>不详述。配置更多的alias可以方便代码书写，提高webpack寻找模块的速度，提高编译速度。</p>
+<h2 id="plugins-配置webpack插件"><a href="#plugins-配置webpack插件" class="headerlink" title="plugins: 配置webpack插件"></a>plugins: 配置webpack插件</h2><p>插件系列会新开篇章</p>
+<h2 id="loaders-配置-文件对应的loaders"><a href="#loaders-配置-文件对应的loaders" class="headerlink" title="loaders: 配置 文件对应的loaders"></a>loaders: 配置 文件对应的loaders</h2><p>也在插件篇章</p>
+<h2 id="调优"><a href="#调优" class="headerlink" title="调优"></a>调优</h2><p>会新开优化篇章</p>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2016/04/28/react学习/" itemprop="url">
+                  react学习
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">Posted on</span>
+            <time itemprop="dateCreated" datetime="2016-04-28T17:55:23+08:00" content="2016-04-28">
+              2016-04-28
+            </time>
+          </span>
+
+          
+
+          
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>##1. 背景</p>
+<blockquote>
+<p>react是Facebook 和 Instagram 用来创建用户界面的 JavaScript 库</p>
+<p>2013 到现在3年多github上有4w个star</p>
+<p>React 是为了解决一个问题：构建随着时间数据不断变化的大规模应用程序。只做MVC中的V</p>
+<p>稍微大点的项目都会组件自己的UI库，页面UI的复杂度和交互容易遇到很多麻烦。只解决UI层的问题，兼容性好。UI相关框架 bootstrap,avalon,kissy,jqueryUI…</p>
+<p>VDOM性能上可以期待，react 有一套VDOM的渲染算法，官网上有相关英文论文</p>
+<p>react来写UI有种web components的感觉。最后出来的UI组件就是一个</p>
+</blockquote>
+<pre><code>&lt;MyReactUI props={props}/&gt;
+</code></pre><p>##2. react配置环境</p>
+<ol>
+<li><p>包依赖</p>
+ <figure class="highlight 1c"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="string">"react"</span>: <span class="string">"*"</span>,</div><div class="line"><span class="string">"react-dom"</span>: <span class="string">"^15.0.1"</span>,</div><div class="line"><span class="string">"babel-core"</span>: <span class="string">"^6.7.6"</span>,</div><div class="line"><span class="string">"babel-loader"</span>: <span class="string">"^6.2.4"</span>,</div><div class="line"><span class="string">"babel-preset-es2015"</span>: <span class="string">"^6.6.0"</span>,</div><div class="line"><span class="string">"babel-preset-react"</span>: <span class="string">"^6.5.0"</span>,</div></pre></td></tr></table></figure>
+</li>
+<li><p>JSX支持</p>
+<p> sublime: babel-sublime</p>
+</li>
+</ol>
+<pre><code>打开菜单view， Syntax -&gt; Open all with current extension as... -&gt; Babel -&gt; JavaScript (Babel)，选择babel为默认 javascript 打开syntax
+</code></pre><ol>
+<li><p>chrome 调试工具</p>
+<p> <a href="http://facebook.github.io/react/blog/2015/09/02/new-react-developer-tools.html" target="_blank" rel="external">http://facebook.github.io/react/blog/2015/09/02/new-react-developer-tools.html</a></p>
+</li>
+</ol>
+<p>##3. react入门</p>
+<pre><code>React.createElement() //一个静态HTML
+React.createClass() // react组件
+React.render() //入口函数，可以用来渲染前两个
+</code></pre><p>###组件<br>    props,state // this.props 表示那些一旦定义，就不再改变的特性，而 this.state 是会随着用户互动而产生变化的特性。</p>
+<pre><code>setState() // 改变state
+setProps() //
+forceUpdate()    // 无法通过改变props，state来render的时候，手动调用它render
+getDOMNode() //获取原生DOM
+propTypes() // 验证
+mixins //
+statics //
+displayName //
+render() //必须,渲染一个React.createElement
+</code></pre><h3 id="组件的生命周期"><a href="#组件的生命周期" class="headerlink" title="组件的生命周期"></a>组件的生命周期</h3><pre><code>getInitialState()
+getDefaultProps()
+componentWillMount()
+componentDidMount()
+componentWillReceiveProps()  //在组件接收到新的 props 的时候调用。在初始化渲染的时候，该方法不会调用。
+shouldComponentUpdate() // 在接收到新的 props 或者 state，将要渲染之前调用。该方法在初始化渲染的时候不会调用，在使用 forceUpdate 方法的时候也不会.
+
+shouldComponentUpdate: function(nextProps, nextState) {
+  return nextProps.id !== this.props.id;
+}
+---------------------------------
+componentWillUpdate() // 在接收到新的 props 或者 state 之前立刻调用。在初始化渲染的时候该方法不会被调用。
+注意：
+你不能在刚方法中使用 this.setState()。如果需要更新 state 来响应某个 prop 的改变，请使用 componentWillReceiveProps。
+componentDidUpdate() // 结束 render()
+componentWillUnmount() // 移除组件
+</code></pre><h3 id="事件"><a href="#事件" class="headerlink" title="事件"></a>事件</h3><blockquote>
+<p>举个栗子click -&gt; onClick 冒泡, onClickCapture 捕获.</p>
+<p>也有 stopPropagation() 和 preventDefault()</p>
+<p>touch事件开启 React.initializeTouchEvents(true)</p>
+</blockquote>
+<p><a href="http://reactjs.cn/react/docs/events.html" target="_blank" rel="external">http://reactjs.cn/react/docs/events.html</a></p>
+<h3 id="DOM属性"><a href="#DOM属性" class="headerlink" title="DOM属性"></a>DOM属性</h3><blockquote>
+<p>支持data-<em> 和 aria-</em></p>
+<p>class -&gt; className</p>
+<p> for -&gt; htmlFor</p>
+</blockquote>
+<p><a href="http://reactjs.cn/react/docs/tags-and-attributes.html" target="_blank" rel="external">http://reactjs.cn/react/docs/tags-and-attributes.html</a></p>
+<h3 id="自身属性"><a href="#自身属性" class="headerlink" title="自身属性"></a>自身属性</h3><pre><code>key： 可以优化渲染速度，给dom加了个ID
+ref： // 方便调用DOM
+dangerouslySetInnerHTML： // 渲染 html字符串
+</code></pre><p>##4. 数据传递</p>
+<blockquote>
+<p>单项数据流 从根component到子component</p>
+<p>父－子 直接pass props，</p>
+<p>子－父，调用父组件传给子的回调 改变父的state或者props</p>
+<p>组件间 配置全局的事件.($.jps)</p>
+</blockquote>
+<p>##5. 注意事项</p>
+<p>react中文文档：<a href="http://reactjs.cn/react/docs/getting-started.html" target="_blank" rel="external">http://reactjs.cn/react/docs/getting-started.html</a></p>
+<p>react英文文档：<a href="https://facebook.github.io/react/" target="_blank" rel="external">https://facebook.github.io/react/</a></p>
+<p>react中文社区 <a href="http://react-china.org/" target="_blank" rel="external">http://react-china.org/</a></p>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
                 <a class="post-title-link" href="/2015/10/08/移动端布局/" itemprop="url">
                   移动端布局
                 </a>
@@ -683,6 +1026,99 @@ else {
             
               
                 
+                <a class="post-title-link" href="/2015/06/14/Hello-Hexo/" itemprop="url">
+                  Hello Hexo
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">Posted on</span>
+            <time itemprop="dateCreated" datetime="2015-06-14T21:14:23+08:00" content="2015-06-14">
+              2015-06-14
+            </time>
+          </span>
+
+          
+
+          
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
                 <a class="post-title-link" href="/2015/06/14/css3-animation/" itemprop="url">
                   css3 animation
                 </a>
@@ -772,99 +1208,6 @@ to { -webkit-transform: rotate(3330deg) } //定义旋转动画
     transform: matrix(0.866,0.5,-0.5,0.866,0,0);
 }
 </code></pre>
-          
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2015/06/14/Hello-Hexo/" itemprop="url">
-                  Hello Hexo
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">Posted on</span>
-            <time itemprop="dateCreated" datetime="2015-06-14T21:14:23+08:00" content="2015-06-14">
-              2015-06-14
-            </time>
-          </span>
-
-          
-
-          
-            
-          
-
-          
-
-          
-          
-
-          
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            
           
         
       
@@ -1438,7 +1781,7 @@ void Document::updateLayoutIgnorePendingStylesheets()
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">8</span>
+              <span class="site-state-item-count">10</span>
               <span class="site-state-item-name">posts</span>
             </a>
           </div>
@@ -1448,7 +1791,7 @@ void Document::updateLayoutIgnorePendingStylesheets()
           
             <div class="site-state-item site-state-tags">
               <a href="/tags">
-                <span class="site-state-item-count">7</span>
+                <span class="site-state-item-count">9</span>
                 <span class="site-state-item-name">tags</span>
               </a>
             </div>

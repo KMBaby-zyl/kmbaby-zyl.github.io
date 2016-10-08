@@ -68,7 +68,7 @@
 <link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="优化," />
+  <meta name="keywords" content="react," />
 
 
 
@@ -84,21 +84,31 @@
 
 
 
-<meta name="description" content="图片优化－ base64 vs 雪碧图页面渲染的过程中太多的request会增加页面的加载时间和渲染时间。为此我们通常会打包css，js文件，把图片打包成雪碧图。有时候我们还可以使用base64把图片资源直接写入css文件，这个做法非常的方面。
-雪碧图雪碧图是把各种小图片资源拼凑在一起，成为一张大图片资源。通过 background-position 来设置图片位置起始点，配合 width，hei">
+<meta name="description" content="##1. 背景
+
+react是Facebook 和 Instagram 用来创建用户界面的 JavaScript 库
+2013 到现在3年多github上有4w个star
+React 是为了解决一个问题：构建随着时间数据不断变化的大规模应用程序。只做MVC中的V
+稍微大点的项目都会组件自己的UI库，页面UI的复杂度和交互容易遇到很多麻烦。只解决UI层的问题，兼容性好。UI相关框架 bootstra">
 <meta property="og:type" content="article">
-<meta property="og:title" content="图片优化 base64 vs 雪碧图">
-<meta property="og:url" content="http://yoursite.com/2015/08/28/图片优化_base64_vs_雪碧图/index.html">
+<meta property="og:title" content="react学习">
+<meta property="og:url" content="http://yoursite.com/2016/04/28/react学习/index.html">
 <meta property="og:site_name" content="kmbaby的博客">
-<meta property="og:description" content="图片优化－ base64 vs 雪碧图页面渲染的过程中太多的request会增加页面的加载时间和渲染时间。为此我们通常会打包css，js文件，把图片打包成雪碧图。有时候我们还可以使用base64把图片资源直接写入css文件，这个做法非常的方面。
-雪碧图雪碧图是把各种小图片资源拼凑在一起，成为一张大图片资源。通过 background-position 来设置图片位置起始点，配合 width，hei">
-<meta property="og:image" content="http://images.apple.com/global/nav/images/globalnav.png">
-<meta property="og:updated_time" content="2016-10-08T07:12:23.000Z">
+<meta property="og:description" content="##1. 背景
+
+react是Facebook 和 Instagram 用来创建用户界面的 JavaScript 库
+2013 到现在3年多github上有4w个star
+React 是为了解决一个问题：构建随着时间数据不断变化的大规模应用程序。只做MVC中的V
+稍微大点的项目都会组件自己的UI库，页面UI的复杂度和交互容易遇到很多麻烦。只解决UI层的问题，兼容性好。UI相关框架 bootstra">
+<meta property="og:updated_time" content="2016-10-08T07:41:43.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="图片优化 base64 vs 雪碧图">
-<meta name="twitter:description" content="图片优化－ base64 vs 雪碧图页面渲染的过程中太多的request会增加页面的加载时间和渲染时间。为此我们通常会打包css，js文件，把图片打包成雪碧图。有时候我们还可以使用base64把图片资源直接写入css文件，这个做法非常的方面。
-雪碧图雪碧图是把各种小图片资源拼凑在一起，成为一张大图片资源。通过 background-position 来设置图片位置起始点，配合 width，hei">
-<meta name="twitter:image" content="http://images.apple.com/global/nav/images/globalnav.png">
+<meta name="twitter:title" content="react学习">
+<meta name="twitter:description" content="##1. 背景
+
+react是Facebook 和 Instagram 用来创建用户界面的 JavaScript 库
+2013 到现在3年多github上有4w个star
+React 是为了解决一个问题：构建随着时间数据不断变化的大规模应用程序。只做MVC中的V
+稍微大点的项目都会组件自己的UI库，页面UI的复杂度和交互容易遇到很多麻烦。只解决UI层的问题，兼容性好。UI相关框架 bootstra">
 
 
 
@@ -116,7 +126,7 @@
   };
 </script>
 
-  <title> 图片优化 base64 vs 雪碧图 | kmbaby的博客 </title>
+  <title> react学习 | kmbaby的博客 </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-CN">
@@ -236,7 +246,7 @@
             
             
               
-                图片优化 base64 vs 雪碧图
+                react学习
               
             
           </h1>
@@ -248,8 +258,8 @@
               <i class="fa fa-calendar-o"></i>
             </span>
             <span class="post-meta-item-text">Posted on</span>
-            <time itemprop="dateCreated" datetime="2015-08-28T19:14:23+08:00" content="2015-08-28">
-              2015-08-28
+            <time itemprop="dateCreated" datetime="2016-04-28T17:55:23+08:00" content="2016-04-28">
+              2016-04-28
             </time>
           </span>
 
@@ -276,65 +286,87 @@
       
 
       
-        <h1 id="图片优化－-base64-vs-雪碧图"><a href="#图片优化－-base64-vs-雪碧图" class="headerlink" title="图片优化－ base64 vs 雪碧图"></a>图片优化－ base64 vs 雪碧图</h1><p>页面渲染的过程中太多的request会增加页面的加载时间和渲染时间。为此我们通常会打包css，js文件，把图片打包成雪碧图。有时候我们还可以使用base64把图片资源直接写入css文件，这个做法非常的方面。</p>
-<h3 id="雪碧图"><a href="#雪碧图" class="headerlink" title="雪碧图"></a>雪碧图</h3><p>雪碧图是把各种小图片资源拼凑在一起，成为一张大图片资源。通过 background-position 来设置图片位置起始点，配合 width，height 来获取需要的图片。</p>
-<p>EXAMPLE:</p>
-<p><img src="http://images.apple.com/global/nav/images/globalnav.png" alt="Alt text"></p>
+        <p>##1. 背景</p>
+<blockquote>
+<p>react是Facebook 和 Instagram 用来创建用户界面的 JavaScript 库</p>
+<p>2013 到现在3年多github上有4w个star</p>
+<p>React 是为了解决一个问题：构建随着时间数据不断变化的大规模应用程序。只做MVC中的V</p>
+<p>稍微大点的项目都会组件自己的UI库，页面UI的复杂度和交互容易遇到很多麻烦。只解决UI层的问题，兼容性好。UI相关框架 bootstrap,avalon,kissy,jqueryUI…</p>
+<p>VDOM性能上可以期待，react 有一套VDOM的渲染算法，官网上有相关英文论文</p>
+<p>react来写UI有种web components的感觉。最后出来的UI组件就是一个</p>
+</blockquote>
+<pre><code>&lt;MyReactUI props={props}/&gt;
+</code></pre><p>##2. react配置环境</p>
 <ol>
-<li>优点<ul>
-<li>把大量图片请求合并为一个图片请求</li>
-</ul>
+<li><p>包依赖</p>
+ <figure class="highlight 1c"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="string">"react"</span>: <span class="string">"*"</span>,</div><div class="line"><span class="string">"react-dom"</span>: <span class="string">"^15.0.1"</span>,</div><div class="line"><span class="string">"babel-core"</span>: <span class="string">"^6.7.6"</span>,</div><div class="line"><span class="string">"babel-loader"</span>: <span class="string">"^6.2.4"</span>,</div><div class="line"><span class="string">"babel-preset-es2015"</span>: <span class="string">"^6.6.0"</span>,</div><div class="line"><span class="string">"babel-preset-react"</span>: <span class="string">"^6.5.0"</span>,</div></pre></td></tr></table></figure>
 </li>
-<li>缺点<ul>
-<li>难以操作和更新，没有工具的帮忙把各种小图拼在一起不是个容易的工作。</li>
-<li>如果雪碧图中有太多留白，不够紧凑会增加额外的空间消耗。</li>
-<li>如果雪碧图过于紧凑，会增加一个图片元素中显示了部分其他图片的风险。</li>
-</ul>
+<li><p>JSX支持</p>
+<p> sublime: babel-sublime</p>
 </li>
 </ol>
-<h3 id="Base64"><a href="#Base64" class="headerlink" title="Base64"></a>Base64</h3><p>Base64的形式为 Data URI</p>
-<pre><code>data:[&lt;mime type&gt;][;charset=&lt;charset&gt;][;base64],&lt;encoded data&gt;
-</code></pre><p>在css中</p>
-<pre><code>selector {
-background: url(data:image/gif;base64,R0lGODlhEAAQAMQAAORHHOVSKudfOulrSOp3WOyDZu6QdvCchPGolfO0o/XBs/fNwfjZ0frl3/zy7////wAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACH5BAkAABAALAAAAAAQABAAAAVVICSOZGlCQAosJ6mu7fiyZeKqNKToQGDsM8hBADgUXoGAiqhSvp5QAnQKGIgUhwFUYLCVDFCrKUE1lBavAViFIDlTImbKC5Gm2hB0SlBCBMQiB0UjIQA7) no-repeat left center;
-</code></pre><p>}</p>
-<p>在html中</p>
-<pre><code>&lt;img width=&quot;16&quot; height=&quot;16&quot; alt=&quot;star&quot; src=&quot;data:image/gif;base64,R0lGODlhEAAQAMQAAORHHOVSKudfOulrSOp3WOyDZu6QdvCchPGolfO0o/XBs/fNwfjZ0frl3/zy7////wAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACH5BAkAABAALAAAAAAQABAAAAVVICSOZGlCQAosJ6mu7fiyZeKqNKToQGDsM8hBADgUXoGAiqhSvp5QAnQKGIgUhwFUYLCVDFCrKUE1lBavAViFIDlTImbKC5Gm2hB0SlBCBMQiB0UjIQA7&quot; /&gt;
-</code></pre><p>使用Base64可以达到我们要的优化效果，把所有的小图放入css文件中。我们把大量的图片请求都合并在了css文件中。</p>
-<ol>
-<li>优点<ul>
-<li>把大量的图片请求合并在了css文件中</li>
-<li>容易更新</li>
-</ul>
-</li>
-<li>缺点<ul>
-<li>会增加25%的图片资源大小，使用了gzip后 只增加10%。</li>
-<li>不支持IE6和7</li>
-</ul>
+<pre><code>打开菜单view， Syntax -&gt; Open all with current extension as... -&gt; Babel -&gt; JavaScript (Babel)，选择babel为默认 javascript 打开syntax
+</code></pre><ol>
+<li><p>chrome 调试工具</p>
+<p> <a href="http://facebook.github.io/react/blog/2015/09/02/new-react-developer-tools.html" target="_blank" rel="external">http://facebook.github.io/react/blog/2015/09/02/new-react-developer-tools.html</a></p>
 </li>
 </ol>
-<h3 id="选择哪个？"><a href="#选择哪个？" class="headerlink" title="选择哪个？"></a>选择哪个？</h3><p>两者都有人在使用，很多情况下一起配合使用会达到更好的效果。</p>
-<p>但如果你的图片需要支持不同设备的时候，雪碧图十分好用。</p>
-<pre><code>selector {
-    background-image: url(our_bg_image.png); /* will be downloaded on common     displays */
+<p>##3. react入门</p>
+<pre><code>React.createElement() //一个静态HTML
+React.createClass() // react组件
+React.render() //入口函数，可以用来渲染前两个
+</code></pre><p>###组件<br>    props,state // this.props 表示那些一旦定义，就不再改变的特性，而 this.state 是会随着用户互动而产生变化的特性。</p>
+<pre><code>setState() // 改变state
+setProps() //
+forceUpdate()    // 无法通过改变props，state来render的时候，手动调用它render
+getDOMNode() //获取原生DOM
+propTypes() // 验证
+mixins //
+statics //
+displayName //
+render() //必须,渲染一个React.createElement
+</code></pre><h3 id="组件的生命周期"><a href="#组件的生命周期" class="headerlink" title="组件的生命周期"></a>组件的生命周期</h3><pre><code>getInitialState()
+getDefaultProps()
+componentWillMount()
+componentDidMount()
+componentWillReceiveProps()  //在组件接收到新的 props 的时候调用。在初始化渲染的时候，该方法不会调用。
+shouldComponentUpdate() // 在接收到新的 props 或者 state，将要渲染之前调用。该方法在初始化渲染的时候不会调用，在使用 forceUpdate 方法的时候也不会.
+
+shouldComponentUpdate: function(nextProps, nextState) {
+  return nextProps.id !== this.props.id;
 }
-/* Stylesheet for Retina */
-@media screen and (-webkit-min-device-pixel-ratio: 1.5), screen and (min-device-pixel-ratio: 1.5) {
-    selector {
-        background-image: url(our_bg_image@2x.png); /* will be downloaded on retina displays */
-    }
-}
-</code></pre><p>如果我们不需要支持ie &lt; 9 我们也可以使用base64</p>
-<pre><code>&lt;script&gt;
-var retina = window.devicePixelRatio &gt; 1 ? true : false;
-if (retina) {
-    // the user has a retina display
-}
-else {
-    // the user has a non-retina display
-}
-&lt;/script&gt;
-</code></pre><p>以上</p>
+---------------------------------
+componentWillUpdate() // 在接收到新的 props 或者 state 之前立刻调用。在初始化渲染的时候该方法不会被调用。
+注意：
+你不能在刚方法中使用 this.setState()。如果需要更新 state 来响应某个 prop 的改变，请使用 componentWillReceiveProps。
+componentDidUpdate() // 结束 render()
+componentWillUnmount() // 移除组件
+</code></pre><h3 id="事件"><a href="#事件" class="headerlink" title="事件"></a>事件</h3><blockquote>
+<p>举个栗子click -&gt; onClick 冒泡, onClickCapture 捕获.</p>
+<p>也有 stopPropagation() 和 preventDefault()</p>
+<p>touch事件开启 React.initializeTouchEvents(true)</p>
+</blockquote>
+<p><a href="http://reactjs.cn/react/docs/events.html" target="_blank" rel="external">http://reactjs.cn/react/docs/events.html</a></p>
+<h3 id="DOM属性"><a href="#DOM属性" class="headerlink" title="DOM属性"></a>DOM属性</h3><blockquote>
+<p>支持data-<em> 和 aria-</em></p>
+<p>class -&gt; className</p>
+<p> for -&gt; htmlFor</p>
+</blockquote>
+<p><a href="http://reactjs.cn/react/docs/tags-and-attributes.html" target="_blank" rel="external">http://reactjs.cn/react/docs/tags-and-attributes.html</a></p>
+<h3 id="自身属性"><a href="#自身属性" class="headerlink" title="自身属性"></a>自身属性</h3><pre><code>key： 可以优化渲染速度，给dom加了个ID
+ref： // 方便调用DOM
+dangerouslySetInnerHTML： // 渲染 html字符串
+</code></pre><p>##4. 数据传递</p>
+<blockquote>
+<p>单项数据流 从根component到子component</p>
+<p>父－子 直接pass props，</p>
+<p>子－父，调用父组件传给子的回调 改变父的state或者props</p>
+<p>组件间 配置全局的事件.($.jps)</p>
+</blockquote>
+<p>##5. 注意事项</p>
+<p>react中文文档：<a href="http://reactjs.cn/react/docs/getting-started.html" target="_blank" rel="external">http://reactjs.cn/react/docs/getting-started.html</a></p>
+<p>react英文文档：<a href="https://facebook.github.io/react/" target="_blank" rel="external">https://facebook.github.io/react/</a></p>
+<p>react中文社区 <a href="http://react-china.org/" target="_blank" rel="external">http://react-china.org/</a></p>
 
       
     </div>
@@ -356,7 +388,7 @@ else {
       
         <div class="post-tags">
           
-            <a href="/tags/优化/" rel="tag">#优化</a>
+            <a href="/tags/react/" rel="tag">#react</a>
           
         </div>
       
@@ -365,16 +397,16 @@ else {
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2015/06/17/PageSpeed性能工具/" rel="next" title="PageSpeed性能工具">
-                <i class="fa fa-chevron-left"></i> PageSpeed性能工具
+              <a href="/2015/10/08/移动端布局/" rel="next" title="移动端布局">
+                <i class="fa fa-chevron-left"></i> 移动端布局
               </a>
             
           </div>
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2015/10/08/移动端布局/" rel="prev" title="移动端布局">
-                移动端布局 <i class="fa fa-chevron-right"></i>
+              <a href="/2016/10/08/webpack/" rel="prev" title="webpack入门">
+                webpack入门 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -482,7 +514,7 @@ else {
               
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#图片优化－-base64-vs-雪碧图"><span class="nav-number">1.</span> <span class="nav-text">图片优化－ base64 vs 雪碧图</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#雪碧图"><span class="nav-number">1.0.1.</span> <span class="nav-text">雪碧图</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Base64"><span class="nav-number">1.0.2.</span> <span class="nav-text">Base64</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#选择哪个？"><span class="nav-number">1.0.3.</span> <span class="nav-text">选择哪个？</span></a></li></ol></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#组件的生命周期"><span class="nav-number">1.</span> <span class="nav-text">组件的生命周期</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#事件"><span class="nav-number">2.</span> <span class="nav-text">事件</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#DOM属性"><span class="nav-number">3.</span> <span class="nav-text">DOM属性</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#自身属性"><span class="nav-number">4.</span> <span class="nav-text">自身属性</span></a></li></ol></div>
             
           </div>
         </section>
