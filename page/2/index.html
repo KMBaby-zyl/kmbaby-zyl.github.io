@@ -68,7 +68,7 @@
 <link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="性能 css3 animation," />
+  <meta name="keywords" content="Hexo, NexT" />
 
 
 
@@ -84,25 +84,15 @@
 
 
 
-<meta name="description" content="注：本文出自腾讯AlloyTeam的元彦，文章也可以在github上浏览。请尊重版权，转载请注明来源，多谢～～
-
-高性能移动Web相较PC的场景需要考虑的因素也相对更多更复杂，我们总结为以下几点： 流量、功耗与流畅度。 在PC时代我们更多的是考虑体验上的流畅度，而在Mobile端本身丰富的场景下，需要额外关注对用户基站网络流量使用的情况，设备耗电量的情况。
-关于流畅度，主要体现在前端动画中，在现有">
-<meta property="og:type" content="article">
-<meta property="og:title" content="高性能css3 animation">
-<meta property="og:url" content="http://yoursite.com/2015/06/14/高性能css3动画(转载)/index.html">
+<meta name="description" content="学习总结 思考感悟 知识管理">
+<meta property="og:type" content="website">
+<meta property="og:title" content="kmbaby的博客">
+<meta property="og:url" content="http://yoursite.com/page/2/index.html">
 <meta property="og:site_name" content="kmbaby的博客">
-<meta property="og:description" content="注：本文出自腾讯AlloyTeam的元彦，文章也可以在github上浏览。请尊重版权，转载请注明来源，多谢～～
-
-高性能移动Web相较PC的场景需要考虑的因素也相对更多更复杂，我们总结为以下几点： 流量、功耗与流畅度。 在PC时代我们更多的是考虑体验上的流畅度，而在Mobile端本身丰富的场景下，需要额外关注对用户基站网络流量使用的情况，设备耗电量的情况。
-关于流畅度，主要体现在前端动画中，在现有">
-<meta property="og:updated_time" content="2016-10-08T07:12:23.000Z">
+<meta property="og:description" content="学习总结 思考感悟 知识管理">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="高性能css3 animation">
-<meta name="twitter:description" content="注：本文出自腾讯AlloyTeam的元彦，文章也可以在github上浏览。请尊重版权，转载请注明来源，多谢～～
-
-高性能移动Web相较PC的场景需要考虑的因素也相对更多更复杂，我们总结为以下几点： 流量、功耗与流畅度。 在PC时代我们更多的是考虑体验上的流畅度，而在Mobile端本身丰富的场景下，需要额外关注对用户基站网络流量使用的情况，设备耗电量的情况。
-关于流畅度，主要体现在前端动画中，在现有">
+<meta name="twitter:title" content="kmbaby的博客">
+<meta name="twitter:description" content="学习总结 思考感悟 知识管理">
 
 
 
@@ -120,7 +110,7 @@
   };
 </script>
 
-  <title> 高性能css3 animation | kmbaby的博客 </title>
+  <title> kmbaby的博客 </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-CN">
@@ -141,7 +131,9 @@
     
   
 
-  <div class="container one-collumn sidebar-position-left page-post-detail ">
+  <div class="container one-collumn sidebar-position-left 
+   page-home 
+ ">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -218,9 +210,9 @@
         <div class="content-wrap">
           <div id="content" class="content">
             
-
-  <div id="posts" class="posts-expand">
+  <section id="posts" class="posts-expand">
     
+      
 
   
   
@@ -240,7 +232,10 @@
             
             
               
-                高性能css3 animation
+                
+                <a class="post-title-link" href="/2015/06/14/高性能css3动画(转载)/" itemprop="url">
+                  高性能css3 animation
+                </a>
               
             
           </h1>
@@ -280,7 +275,9 @@
       
 
       
-        <p>注：本文出自腾讯AlloyTeam的元彦，文章也可以在github上浏览。请尊重版权，转载请注明来源，多谢～～</p>
+        
+          
+            <p>注：本文出自腾讯AlloyTeam的元彦，文章也可以在github上浏览。请尊重版权，转载请注明来源，多谢～～</p>
 <hr>
 <p>高性能移动Web相较PC的场景需要考虑的因素也相对更多更复杂，我们总结为以下几点： 流量、功耗与流畅度。 在PC时代我们更多的是考虑体验上的流畅度，而在Mobile端本身丰富的场景下，需要额外关注对用户基站网络流量使用的情况，设备耗电量的情况。</p>
 <p>关于流畅度，主要体现在前端动画中，在现有的前端动画体系中，通常有两种模式：JS动画与CSS3动画。 JS动画是通过JS动态改写样式实现动画能力的一种方案，在PC端兼容低端浏览器中不失为一种推荐方案。 而在移动端，我们选择性能更优浏览器原生实现方案：CSS3动画。</p>
@@ -387,62 +384,219 @@ void Document::updateLayoutIgnorePendingStylesheets()
 </ul>
 <p>进一步深入Layout，那上文中必须更新的必要条件是什么？ 在 Stoyan Stefanov 的 Rendering: repaint, reflow/relayout, restyle 一文中已做比较详细的解答，可移步了解~</p>
 
-      
-    </div>
-
-    <div>
-      
+          
         
       
     </div>
 
     <div>
       
-        
+    </div>
 
+    <div>
       
     </div>
 
     <footer class="post-footer">
       
-        <div class="post-tags">
-          
-            <a href="/tags/性能-css3-animation/" rel="tag">#性能 css3 animation</a>
-          
-        </div>
+
       
 
       
-        <div class="post-nav">
-          <div class="post-nav-next post-nav-item">
-            
-              <a href="/2015/06/14/跨域那些事儿/" rel="next" title="跨域的几种解决方案">
-                <i class="fa fa-chevron-left"></i> 跨域的几种解决方案
-              </a>
-            
-          </div>
-
-          <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2015/06/14/sublime-text-2-配置/" rel="prev" title="sublime text 配置">
-                sublime text 配置 <i class="fa fa-chevron-right"></i>
-              </a>
-            
-          </div>
-        </div>
       
-
-      
+        <div class="post-eof"></div>
       
     </footer>
   </article>
 
 
+    
+      
 
-    <div class="post-spread">
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2015/06/14/跨域那些事儿/" itemprop="url">
+                  跨域的几种解决方案
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">Veröffentlicht am</span>
+            <time itemprop="dateCreated" datetime="2015-06-14T21:14:23+08:00" content="2015-06-14">
+              2015-06-14
+            </time>
+          </span>
+
+          
+
+          
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>跨域是web开发中经常会遇到的情况，只出现在浏览器端。本文列举了一些常见的跨域情况，和解决方案。</p>
+<h3 id="什么是跨域，为什么会有跨域？"><a href="#什么是跨域，为什么会有跨域？" class="headerlink" title="什么是跨域，为什么会有跨域？"></a>什么是跨域，为什么会有跨域？</h3><p>首先什么是跨域，简单地理解就是因为JavaScript同源策略的限制。<br>如 a.com 下的js 无法和b.com 的js通信。这是浏览器为了安全而设定的策略</p>
+<p>只有域名相同才不会有跨域的情况。</p>
+<p>以下情况都会出现跨域：<br>a.com 和 b.com 不同域名<br>www.a.com 和 a.com 不同二级域名<br>a.com 和 a.com:3000 不同端口<br><a href="http://a.com" target="_blank" rel="external">http://a.com</a> 和 <a href="https://a.com" target="_blank" rel="external">https://a.com</a> 不同协议<br>app.a.com 和 pc.a.com 不同二级域名</p>
+<p>以上可见 只有域名严格一致才不会出现跨域</p>
+<p>特别注意两点：<br>第一，如果是协议和端口造成的跨域问题“前台”是无能为力的，只能通过后台代理。这里不细说。</p>
+<p>第二：在跨域问题上，域仅仅是通过“URL的首部”来识别而不会去尝试判断相同的ip地址对应着两个域或两个域是否在同一个ip上。”URL的首部”指window.location.protocol +window.location.host = domain</p>
+<h3 id="常见的情况和解决方案"><a href="#常见的情况和解决方案" class="headerlink" title="常见的情况和解决方案"></a>常见的情况和解决方案</h3><h3 id="1-jsonp-跨域访问接口"><a href="#1-jsonp-跨域访问接口" class="headerlink" title="1.jsonp 跨域访问接口"></a>1.jsonp 跨域访问接口</h3><pre><code>// 在a.com下
+$.ajax({
+    url: &apos;b.com/getjson&apos;?cb=?$a=1&amp;b=2, // cb=? jquery的jsonp 会把此处的？
+    type: &apos;jsonp&apos;,                     //替换为jsonpCallback
+    jsonpCallback:&apos;jsonpCallback&apos;,  // 发出的请求为b.com/getjson&apos;?cb=jsonpCallback$a=1&amp;b=2
+    success:function(data){
+        console.log(data)
+    }
+})
+</code></pre><p>jsonp的原理：<br>虽然js是受到同源策略，但是引用js文件，img，css文件是不会受到限制的。聪明的你此时是否已经知道了答案。</p>
+<p>没错原理就是动态创建script。jquery在发请求前生产了一个jsonpCallback函数。然后向b.com请求了一个js文件<br>服务器根据cb的值返回一个jsonpCallback(jsonDate);即这个js文件被浏览器解析后执行了之前定义的函数。</p>
+<p>这种方法非常常见，方便好用。<br>缺点是<br>1.需要后端配合提供jsonp接口。<br>2.因为是动态创建script标签，所以只能get，不能post。 安全性要大大低于post，不适合发送机密信息。</p>
+<h3 id="2-document-domain-iframe的设置"><a href="#2-document-domain-iframe的设置" class="headerlink" title="2.document.domain+iframe的设置"></a>2.document.domain+iframe的设置</h3><p>对于主域相同而子域不同的例子<br>如在a.com 页面里有一个 pc.a.com 的iframe<br>我们只要在2个页面里都设置 document.domain = ‘a.com’;<br>代码如下：</p>
+<pre><code>var ifr = document.createElement(&apos;iframe&apos;);
+ifr.src = &apos;http://pc.a.com/b.html&apos;;
+ifr.style.display = &apos;none&apos;;
+document.body.appendChild(ifr);
+ifr.onload = function(){
+    var doc = ifr.contentDocument || ifr.contentWindow.document;
+    // 在这里操纵b.html
+    alert(doc.getElementsByTagName(&quot;h1&quot;)[0].childNodes[0].nodeValue);
+};
+</code></pre><p>这种方式适用于{www.kuqin.com, kuqin.com, script.kuqin.com, css.kuqin.com}中的任何页面相互通信</p>
+<p>注意：<br>0、document.domain 不能改变主域。a.com 不能设为b.com 。<br>1、安全性，当一个站点（b.a.com）被攻击后，另一个站点（c.a.com）会引起安全漏洞。<br>2、如果一个页面中引入多个iframe，要想能够操作所有iframe，必须都得设置相同domain。</p>
+<h3 id="3、利用iframe和location-hash"><a href="#3、利用iframe和location-hash" class="headerlink" title="3、利用iframe和location.hash"></a>3、利用iframe和location.hash</h3><pre><code>1、a.com a页面 监听自己的hashchange
+2、a页面中的ifame b.com下的b页面 改变parent的hash
+3、b.com 不能直接改变a.com 的hash时 需要引入a.com 中的c页面#mydata
+4、因为c页面和a页面同源 所以c页面可以
+parent.parent.location.hash = self.location.hash.substring(1);
+来改变a页面的hash
+ok
+</code></pre><h3 id="4、window-name实现的跨域数据传输"><a href="#4、window-name实现的跨域数据传输" class="headerlink" title="4、window.name实现的跨域数据传输"></a>4、window.name实现的跨域数据传输</h3><pre><code>function crossDomainPost() {
+    // Add the iframe with a unique name
+    var iframe = document.createElement(&quot;iframe&quot;);
+    var uniqueString = &quot;CHANGE_THIS_TO_SOME_UNIQUE_STRING&quot;;
+    document.body.appendChild(iframe);
+    iframe.style.display = &quot;none&quot;;
+    iframe.contentWindow.name = uniqueString;
+
+    // construct a form with hidden inputs, targeting the iframe
+    var form = document.createElement(&quot;form&quot;);
+    form.target = uniqueString;
+    form.action = &quot;http://INSERT_YOUR_URL_HERE&quot;;
+    form.method = &quot;POST&quot;;
+
+    // repeat for each parameter
+    var input = document.createElement(&quot;input&quot;);
+    input.type = &quot;hidden&quot;;
+    input.name = &quot;INSERT_YOUR_PARAMETER_NAME_HERE&quot;;
+    input.value = &quot;INSERT_YOUR_PARAMETER_VALUE_HERE&quot;;
+    form.appendChild(input);
+
+    document.body.appendChild(form);
+    form.submit();
+}
+</code></pre><h3 id="5、使用HTML5-postMessage"><a href="#5、使用HTML5-postMessage" class="headerlink" title="5、使用HTML5 postMessage"></a>5、使用HTML5 postMessage</h3><p>Chrome 2.0+、Internet Explorer 8.0+, Firefox 3.0+, Opera 9.6+, 和 Safari 4.0+都支持这个功能</p>
+<p>otherWindow.postMessage(message, targetOrigin);<br>otherWindow: 对接收信息页面的window的引用。可以是页面中iframe的contentWindow属性；window.open的返回值；通过name或下标从window.frames取到的值。<br>message: 所要发送的数据，string类型。<br>targetOrigin: 用于限制otherWindow，“*”表示不作限制</p>
+<pre><code>a.com/index.html中的代码：
+&lt;iframe id=&quot;ifr&quot; src=&quot;b.com/index.html&quot;&gt;&lt;/iframe&gt;
+&lt;script type=&quot;text/javascript&quot;&gt;
+window.onload = function() {
+    var ifr = document.getElementById(&apos;ifr&apos;);
+    var targetOrigin = &apos;http://b.com&apos;;  // 若写成&apos;http://b.com/c/proxy.html&apos;效果一样
+                                        // 若写成&apos;http://c.com&apos;就不会执行postMessage了
+    ifr.contentWindow.postMessage(&apos;I was there!&apos;, targetOrigin);
+};
+&lt;/script&gt;
+</code></pre><p>b.com/index.html中的代码：</p>
+<pre><code>&lt;script type=&quot;text/javascript&quot;&gt;
+    window.addEventListener(&apos;message&apos;, function(event){
+        // 通过origin属性判断消息来源地址
+        if (event.origin == &apos;http://a.com&apos;) {
+            alert(event.data);    // 弹出&quot;I was there!&quot;
+            alert(event.source);  // 对a.com、index.html中window对象的引用
+                                  // 但由于同源策略，这里event.source不可以访问window对象
+        }
+    }, false);
+&lt;/script&gt;
+</code></pre><h3 id="6、利用flash"><a href="#6、利用flash" class="headerlink" title="6、利用flash"></a>6、利用flash</h3><p>待续</p>
+
+          
+        
       
     </div>
-  </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+  </section>
+
+  
+  <nav class="pagination">
+    <a class="extend prev" rel="prev" href="/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><span class="page-number current">2</span>
+  </nav>
+
 
 
           </div>
@@ -450,10 +604,6 @@ void Document::updateLayoutIgnorePendingStylesheets()
 
 
           
-  <div class="comments" id="comments">
-    
-  </div>
-
 
         </div>
         
@@ -473,17 +623,8 @@ void Document::updateLayoutIgnorePendingStylesheets()
       
 
       
-        <ul class="sidebar-nav motion-element">
-          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
-            Inhaltsverzeichnis
-          </li>
-          <li class="sidebar-nav-overview" data-target="site-overview">
-            Übersicht
-          </li>
-        </ul>
-      
 
-      <section class="site-overview sidebar-panel ">
+      <section class="site-overview sidebar-panel  sidebar-panel-active ">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
           <img class="site-author-image" itemprop="image"
                src="/images/avatar.gif"
@@ -526,17 +667,6 @@ void Document::updateLayoutIgnorePendingStylesheets()
 
       </section>
 
-      
-        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
-          <div class="post-toc">
-            
-              
-            
-            
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#尽可能多的利用硬件能力，如使用3D变形来开启GPU加速"><span class="nav-number">1.</span> <span class="nav-text">尽可能多的利用硬件能力，如使用3D变形来开启GPU加速</span></a></li></ol></div>
-            
-          </div>
-        </section>
       
 
     </div>
@@ -633,10 +763,6 @@ void Document::updateLayoutIgnorePendingStylesheets()
   
 
   
-  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.0.1"></script>
-<script type="text/javascript" src="/js/src/post-details.js?v=5.0.1"></script>
-
-
 
   
 

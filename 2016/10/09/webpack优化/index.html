@@ -68,7 +68,7 @@
 <link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="sublime," />
+  <meta name="keywords" content="webpack," />
 
 
 
@@ -84,34 +84,40 @@
 
 
 
-<meta name="description" content="#sublime text 2
+<meta name="description" content="webpack优化0、调试webpack –config file –colors –profile –display-modules
 
-常用User Setting{
-    &amp;quot;default_encoding&amp;quot;: &amp;quot;UTF-8&amp;quot;,
-    &amp;quot;font_size&amp;quot;: 13.0,
-    &amp;quot;tab_size&amp;quot;: 4,
-    &amp;quot;translate_tabs_to_spaces&amp;quot;: true,">
+–colors 输出结果带彩色，比如：会用红色显示耗时较长的步骤
+
+–profile 输出性能数据，可以看到每一步的耗时
+
+–display-modules 默认情况下 node_modules 下的模块会被隐藏，加上这个参数可以显示这些被隐藏的模块
+
+1、添加">
 <meta property="og:type" content="article">
-<meta property="og:title" content="sublime text 配置">
-<meta property="og:url" content="http://yoursite.com/2015/06/14/sublime-text-2-配置/index.html">
+<meta property="og:title" content="webpack优化">
+<meta property="og:url" content="http://yoursite.com/2016/10/09/webpack优化/index.html">
 <meta property="og:site_name" content="kmbaby的博客">
-<meta property="og:description" content="#sublime text 2
+<meta property="og:description" content="webpack优化0、调试webpack –config file –colors –profile –display-modules
 
-常用User Setting{
-    &amp;quot;default_encoding&amp;quot;: &amp;quot;UTF-8&amp;quot;,
-    &amp;quot;font_size&amp;quot;: 13.0,
-    &amp;quot;tab_size&amp;quot;: 4,
-    &amp;quot;translate_tabs_to_spaces&amp;quot;: true,">
-<meta property="og:updated_time" content="2016-10-08T07:41:56.000Z">
+–colors 输出结果带彩色，比如：会用红色显示耗时较长的步骤
+
+–profile 输出性能数据，可以看到每一步的耗时
+
+–display-modules 默认情况下 node_modules 下的模块会被隐藏，加上这个参数可以显示这些被隐藏的模块
+
+1、添加">
+<meta property="og:updated_time" content="2016-10-08T10:10:24.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="sublime text 配置">
-<meta name="twitter:description" content="#sublime text 2
+<meta name="twitter:title" content="webpack优化">
+<meta name="twitter:description" content="webpack优化0、调试webpack –config file –colors –profile –display-modules
 
-常用User Setting{
-    &amp;quot;default_encoding&amp;quot;: &amp;quot;UTF-8&amp;quot;,
-    &amp;quot;font_size&amp;quot;: 13.0,
-    &amp;quot;tab_size&amp;quot;: 4,
-    &amp;quot;translate_tabs_to_spaces&amp;quot;: true,">
+–colors 输出结果带彩色，比如：会用红色显示耗时较长的步骤
+
+–profile 输出性能数据，可以看到每一步的耗时
+
+–display-modules 默认情况下 node_modules 下的模块会被隐藏，加上这个参数可以显示这些被隐藏的模块
+
+1、添加">
 
 
 
@@ -129,7 +135,7 @@
   };
 </script>
 
-  <title> sublime text 配置 | kmbaby的博客 </title>
+  <title> webpack优化 | kmbaby的博客 </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-CN">
@@ -249,7 +255,7 @@
             
             
               
-                sublime text 配置
+                webpack优化
               
             
           </h1>
@@ -261,8 +267,8 @@
               <i class="fa fa-calendar-o"></i>
             </span>
             <span class="post-meta-item-text">Veröffentlicht am</span>
-            <time itemprop="dateCreated" datetime="2015-06-14T21:14:23+08:00" content="2015-06-14">
-              2015-06-14
+            <time itemprop="dateCreated" datetime="2016-10-09T00:00:00+08:00" content="2016-10-09">
+              2016-10-09
             </time>
           </span>
 
@@ -289,40 +295,68 @@
       
 
       
-        <p>#sublime text 2</p>
-<hr>
-<h3 id="常用User-Setting"><a href="#常用User-Setting" class="headerlink" title="常用User Setting"></a>常用User Setting</h3><pre><code>{
-    &quot;default_encoding&quot;: &quot;UTF-8&quot;,
-    &quot;font_size&quot;: 13.0,
-    &quot;tab_size&quot;: 4,
-    &quot;translate_tabs_to_spaces&quot;: true,
-    &quot;trim_trailing_white_space_on_save&quot;: true
-}
-</code></pre><h3 id="插件扩展（package-control）"><a href="#插件扩展（package-control）" class="headerlink" title="插件扩展（package control）"></a>插件扩展（package control）</h3><p>按下 ctrl ＋ ｀ 出现console menu<br>输入下面的命令</p>
-<pre><code>import urllib2,os,hashlib; h = &apos;7183a2d3e96f11eeadd761d777e62404&apos; + &apos;e330c659d4bb41d3bdf022e94cab3cd0&apos;; pf = &apos;Package Control.sublime-package&apos;; ipp = sublime.installed_packages_path(); os.makedirs( ipp ) if not os.path.exists(ipp) else None; urllib2.install_opener( urllib2.build_opener( urllib2.ProxyHandler()) ); by = urllib2.urlopen( &apos;http://packagecontrol.io/&apos; + pf.replace(&apos; &apos;, &apos;%20&apos;)).read(); dh = hashlib.sha256(by).hexdigest(); open( os.path.join( ipp, pf), &apos;wb&apos; ).write(by) if dh == h else None; print(&apos;Error validating download (got %s instead of %s), please try manual install&apos; % (dh, h) if dh != h else &apos;Please restart Sublime Text to finish installation&apos;)
-</code></pre><p>然后重启sublime</p>
-<p>按住 Command-Shift-P (Mac OS X) or Ctrl-Shift-P (Windows) 可以看到许多sublime的命令</p>
-<p>然后输入 install package 回车<br>之后就可以安装各种subline插件了</p>
-<h3 id="安装HTML-CSS-JS-Prettify-插件"><a href="#安装HTML-CSS-JS-Prettify-插件" class="headerlink" title="安装HTML-CSS-JS Prettify 插件"></a>安装HTML-CSS-JS Prettify 插件</h3><p>Command-Shift-P 再 输入 install package 回车后<br>输入HTML-CSS-JS Prettify 等待安装完成</p>
-<p>Command-Shift-H 命令就可以帮你快速格式化代码了</p>
-<p>在菜单栏的preferences 中的 package settings 中可以查看自己安装的插件，更改插件的配置文件<br>以上 谢谢～</p>
-<h3 id="最后网上推荐了15款常用插件，随意使用"><a href="#最后网上推荐了15款常用插件，随意使用" class="headerlink" title="最后网上推荐了15款常用插件，随意使用"></a>最后网上推荐了15款常用插件，随意使用</h3><ul>
-<li>Emmet Emmet 提供了一种非常简练的语法规则，然后立刻生成对应的 HTML 结构或者 CSS 代码，同时还有多种实用的功能帮助进行前端开发。</li>
-<li>Sublime​Linter——代码校验插件，支持多种语言；</li>
-<li>HTML5HTML5 bundle;</li>
-<li>Alignment 代码对齐；</li>
-<li>Bracket​Highlighter 括号高亮匹配；</li>
-<li>Git 整合 Git 功能的插件；</li>
-<li>jQuery 智能提示jQuery代码；</li>
-<li>LESS LESS 代码高亮；</li>
-<li>Js​Format JavaScript代码格式化；</li>
-<li>Tag HTML/XML标签缩进、补全和校验；</li>
-<li>LiveReload 即时刷新页面；</li>
-<li>Pretty JSON JSON美化；</li>
-<li>Can I Use 查询 CSS 属性兼容性；</li>
-<li>Coffee​Script Coffee​Script 代码高亮、校验和编译等；</li>
-<li>Color​Picker 跨平台取色器插件；</li>
+        <h1 id="webpack优化"><a href="#webpack优化" class="headerlink" title="webpack优化"></a>webpack优化</h1><h2 id="0、调试"><a href="#0、调试" class="headerlink" title="0、调试"></a>0、调试</h2><p>webpack –config file –colors –profile –display-modules</p>
+<ul>
+<li><p>–colors 输出结果带彩色，比如：会用红色显示耗时较长的步骤</p>
+</li>
+<li><p>–profile 输出性能数据，可以看到每一步的耗时</p>
+</li>
+<li>–display-modules 默认情况下 node_modules 下的模块会被隐藏，加上这个参数可以显示这些被隐藏的模块</li>
 </ul>
+<h2 id="1、添加-alise"><a href="#1、添加-alise" class="headerlink" title="1、添加 alise"></a>1、添加 alise</h2><p>主要是 node_modules 部分。 可以加快查询速度。 （感觉无所谓）</p>
+<h2 id="2、避免比不要的babel"><a href="#2、避免比不要的babel" class="headerlink" title="2、避免比不要的babel"></a>2、避免比不要的babel</h2><p>对于很多的 npm 包来说，他们完全没有经过 babel 的必要（成熟的 npm 包会在发布前将自己 es5，甚至 es3 化），让这些包通过 babel 会带来巨大的性能负担，毕竟 babel6 要经过几十个插件的处理，虽然 babel-loader 强大，但能者多劳的这种保守的想法却使得 babel-loader 成为了整个构建的性能瓶颈。所以我们可以使用 exclude，大胆地屏蔽掉 npm 里的包，从而使整包的构建效率飞速提高。</p>
+<pre><code>loaders: [{
+    test: /\.js[x]?$/,
+    exclude: /(node_modules)|(global\/lib\/)/,
+    loader: &apos;babel-loader&apos;
+},
+</code></pre><h2 id="3、-DllReferencePlugin"><a href="#3、-DllReferencePlugin" class="headerlink" title="3、 DllReferencePlugin"></a>3、 DllReferencePlugin</h2><p>对于jquery，react这种第三方库重复编译会造成时间上的浪费。</p>
+<p>所以我们把这些文件打包成 lib.js 文件 插件命名参考c++。  dll代表用来被引用的文件。</p>
+<p>1、 创建一个 webpack.dll.conf.js</p>
+<pre><code>var vendors = [
+&apos;jquery&apos;,
+&apos;underscore&apos;,
+&apos;react&apos;,
+&apos;react-dom&apos;,
+];
+
+module.exports = {
+    output: {
+        path: path.resolve(process.cwd(),&apos;build/lib/&apos;),
+        filename: &apos;[name].js&apos;,
+        library: &apos;[name]&apos;,
+    },
+    entry: {
+        &quot;lib&quot;: vendors,
+    },
+    resolve: {
+        alias: ...
+    },
+    plugins: [
+        new webpack.DllPlugin({
+            path: path.resolve(process.cwd(),&apos;build/lib/manifest.json&apos;),
+            name: &apos;[name]&apos;,
+            context: __dirname,
+        }),
+    ],
+};
+</code></pre><p>我们把vendors中的文件打包为一个 lib.js</p>
+<p>加入了 webpack.DllPlugin 插件</p>
+<p>output 中增加了 library</p>
+<p>运行后会在lib目录 生成一个 lib.js 和 manifest.json<br>lib.js 是编译后的文件<br>manifest.json是用来告诉项目的 webpack 相关模块对应lib.js。</p>
+<p>在webpack.conf.js中增加</p>
+<pre><code>new webpack.DllReferencePlugin({
+       context: __dirname,
+       manifest: require(&apos;./lib/manifest.json&apos;)
+   }),
+</code></pre><p>完成后先编译一次dll 再 执行 项目编译。dll文件编译一次后除非变更否则不需要再编译。<br>页面中</p>
+<pre><code>&lt;script src=&quot;./lib.js&quot;&gt;&lt;/script&gt; //先引入lib.js 或者 把两者合并
+&lt;script src=&quot;./common.js&quot;&gt;&lt;/script&gt;
+</code></pre><p>对项目中的 common.js dll前后 做了一次对比</p>
+<p>dll前 186秒<br>dll后 92秒</p>
+<h2 id="4、HappyPack"><a href="#4、HappyPack" class="headerlink" title="4、HappyPack"></a>4、HappyPack</h2><p><a href="https://github.com/amireh/happypack" target="_blank" rel="external">https://github.com/amireh/happypack</a></p>
+<p>loader文件多线程</p>
+<p>之后专门写个篇章</p>
 
       
     </div>
@@ -344,7 +378,7 @@
       
         <div class="post-tags">
           
-            <a href="/tags/sublime/" rel="tag">#sublime</a>
+            <a href="/tags/webpack/" rel="tag">#webpack</a>
           
         </div>
       
@@ -353,16 +387,16 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2015/06/14/高性能css3动画(转载)/" rel="next" title="高性能css3 animation">
-                <i class="fa fa-chevron-left"></i> 高性能css3 animation
+              <a href="/2016/10/08/webpack/" rel="next" title="webpack入门">
+                <i class="fa fa-chevron-left"></i> webpack入门
               </a>
             
           </div>
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2015/06/14/css3-animation/" rel="prev" title="css3 animation">
-                css3 animation <i class="fa fa-chevron-right"></i>
+              <a href="/2016/10/09/webpack_plugins/" rel="prev" title="webpack插件 和 loader 篇">
+                webpack插件 和 loader 篇 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -470,7 +504,7 @@
               
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#常用User-Setting"><span class="nav-number">1.</span> <span class="nav-text">常用User Setting</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#插件扩展（package-control）"><span class="nav-number">2.</span> <span class="nav-text">插件扩展（package control）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#安装HTML-CSS-JS-Prettify-插件"><span class="nav-number">3.</span> <span class="nav-text">安装HTML-CSS-JS Prettify 插件</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#最后网上推荐了15款常用插件，随意使用"><span class="nav-number">4.</span> <span class="nav-text">最后网上推荐了15款常用插件，随意使用</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#webpack优化"><span class="nav-number">1.</span> <span class="nav-text">webpack优化</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#0、调试"><span class="nav-number">1.1.</span> <span class="nav-text">0、调试</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#1、添加-alise"><span class="nav-number">1.2.</span> <span class="nav-text">1、添加 alise</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2、避免比不要的babel"><span class="nav-number">1.3.</span> <span class="nav-text">2、避免比不要的babel</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3、-DllReferencePlugin"><span class="nav-number">1.4.</span> <span class="nav-text">3、 DllReferencePlugin</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4、HappyPack"><span class="nav-number">1.5.</span> <span class="nav-text">4、HappyPack</span></a></li></ol></li></ol></div>
             
           </div>
         </section>
